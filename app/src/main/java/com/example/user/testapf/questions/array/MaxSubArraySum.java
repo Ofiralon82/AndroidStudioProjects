@@ -47,7 +47,9 @@ public class MaxSubArraySum
             temp = 0;
         }
     }
-    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+
+
+    // naive way
 //    public int maxSubArray(final List<Integer> A) {
 //
 //        if (A.size() == 1)
