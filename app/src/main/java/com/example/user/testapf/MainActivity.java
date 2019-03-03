@@ -1,10 +1,7 @@
 package com.example.user.testapf;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.user.testapf.general.recursion.FactorialRecursion;
-import com.example.user.testapf.general.recursion.Fibonacci;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity
 {

@@ -1,5 +1,7 @@
 package com.example.user.testapf.algorithms;
 
+import java.util.ArrayList;
+
 public class InsertionSort
 {
     public InsertionSort()
@@ -23,6 +25,24 @@ public class InsertionSort
             }
             array[hole] = value;
         }
+    }
+
+    private ArrayList<Integer> insertionAlgorithem(ArrayList<Integer> array)
+    {
+        for (int i = 1 ; array.size() > i ; i++)
+        {
+            int hole = i;
+            int value = array.get(hole);
+
+            while(hole > 0 && array.get(hole - 1) > value)
+            {
+                array.set(hole, array.get(hole - 1));
+                hole--;
+            }
+            array.set(hole, value);
+        }
+
+        return array;
     }
 
 }
