@@ -1,25 +1,30 @@
 package com.example.user.testapf.data_structures.tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTreeImpl
 {
     Node root;
 
-    class Node {
+    class Node
+    {
         int value;
         Node left;
         Node right;
 
-        Node(int value) {
+        Node(int value)
+        {
             this.value = value;
             right = null;
             left = null;
         }
     }
 
-    public BinaryTreeImpl createBinaryTree() {
+    public BinaryTreeImpl createBinaryTree()
+    {
         BinaryTreeImpl bt = new BinaryTreeImpl();
 
         bt.add(6);
@@ -33,16 +38,23 @@ public class BinaryTreeImpl
         return bt;
     }
 
-    private Node addRecursive(Node current, int value) {
-        if (current == null) {
+    private Node addRecursive(Node current, int value)
+    {
+        if (current == null)
+        {
             return new Node(value);
         }
 
-        if (value < current.value) {
+        if (value < current.value)
+        {
             current.left = addRecursive(current.left, value);
-        } else if (value > current.value) {
+        }
+        else if (value > current.value)
+        {
             current.right = addRecursive(current.right, value);
-        } else {
+        }
+        else
+        {
             // value already exists
             return current;
         }
@@ -50,16 +62,20 @@ public class BinaryTreeImpl
         return current;
     }
 
-    public void add(int value) {
+    public void add(int value)
+    {
         root = addRecursive(root, value);
     }
 
-    private boolean containsNodeRecursive(Node current, int value) {
-        if (current == null) {
+    private boolean containsNodeRecursive(Node current, int value)
+    {
+        if (current == null)
+        {
             return false;
         }
 
-        if (value == current.value) {
+        if (value == current.value)
+        {
             return true;
         }
         return value < current.value
@@ -67,26 +83,33 @@ public class BinaryTreeImpl
                 : containsNodeRecursive(current.right, value);
     }
 
-    public boolean containsNode(int value) {
+    public boolean containsNode(int value)
+    {
         return containsNodeRecursive(root, value);
     }
 
-    private Node deleteRecursive(Node current, int value) {
-        if (current == null) {
+    private Node deleteRecursive(Node current, int value)
+    {
+        if (current == null)
+        {
             return null;
         }
 
-        if (value == current.value) {
+        if (value == current.value)
+        {
             // Node to delete found
-            if (current.left == null && current.right == null) {
+            if (current.left == null && current.right == null)
+            {
                 return null;
             }
 
-            if (current.right == null) {
+            if (current.right == null)
+            {
                 return current.left;
             }
 
-            if (current.left == null) {
+            if (current.left == null)
+            {
                 return current.right;
             }
 
@@ -95,7 +118,8 @@ public class BinaryTreeImpl
             current.right = deleteRecursive(current.right, smallestValue);
             return current;
         }
-        if (value < current.value) {
+        if (value < current.value)
+        {
             current.left = deleteRecursive(current.left, value);
             return current;
         }
@@ -103,19 +127,38 @@ public class BinaryTreeImpl
         return current;
     }
 
-    private int findSmallestValue(Node root) {
+    private int findSmallestValue(Node root)
+    {
         return root.left == null ? root.value : findSmallestValue(root.left);
     }
 
-    public void delete(int value) {
+    public void delete(int value)
+    {
         root = deleteRecursive(root, value);
     }
 
+    //tree Height
+    int findHeight(TreeNode aNode) {
+        if (aNode == null) {
+            return -1;
+        }
+
+        int lefth = findHeight(aNode.left);
+        int righth = findHeight(aNode.right);
+
+        if (lefth > righth) {
+            return lefth + 1;
+        } else {
+            return righth + 1;
+        }
+    }
 
     //Depth-First Search:
     // in-order
-    public void traverseInOrder(Node node) {
-        if (node != null) {
+    public void traverseInOrder(Node node)
+    {
+        if (node != null)
+        {
             traverseInOrder(node.left);
             System.out.print(" " + node.value);
             traverseInOrder(node.right);
@@ -123,8 +166,10 @@ public class BinaryTreeImpl
     }
 
     //Pre-order
-    public void traversePreOrder(Node node) {
-        if (node != null) {
+    public void traversePreOrder(Node node)
+    {
+        if (node != null)
+        {
             System.out.print(" " + node.value);
             traversePreOrder(node.left);
             traversePreOrder(node.right);
@@ -132,8 +177,10 @@ public class BinaryTreeImpl
     }
 
     //Post-order
-    public void traversePostOrder(Node node) {
-        if (node != null) {
+    public void traversePostOrder(Node node)
+    {
+        if (node != null)
+        {
             traversePostOrder(node.left);
             traversePostOrder(node.right);
             System.out.print(" " + node.value);
@@ -141,27 +188,72 @@ public class BinaryTreeImpl
     }
 
     //Breadth-First Search:
-    public void traverseLevelOrder() {
-        if (root == null) {
+    public void traverseLevelOrder()
+    {
+        if (root == null)
+        {
             return;
         }
 
         Queue<Node> nodes = new LinkedList<>();
         nodes.add(root);
 
-        while (!nodes.isEmpty()) {
+        while (!nodes.isEmpty())
+        {
 
             Node node = nodes.remove();
 
             System.out.print(" " + node.value);
 
-            if (node.left != null) {
+            if (node.left != null)
+            {
                 nodes.add(node.left);
             }
 
-            if (node.right!= null) {
+            if (node.right != null)
+            {
                 nodes.add(node.right);
             }
         }
+    }
+
+    //traversal no recursion:
+
+    class TreeNode
+    {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x)
+        {
+            val = x;
+            left = null;
+            right = null;
+        }
+    }
+
+    //in order
+    public ArrayList<Integer> inorderTraversal(TreeNode A)
+    {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = A;
+
+        while (curr != null || !stack.isEmpty())
+        {
+            while (curr != null)
+            {
+                stack.push(curr);
+                curr = curr.left;
+            }
+
+            curr = stack.pop();
+            list.add(curr.val);
+            curr = curr.right;
+        }
+
+        return list;
     }
 }
