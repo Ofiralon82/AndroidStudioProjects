@@ -4,25 +4,26 @@ import java.util.ArrayList;
 
 public class Permutations
 {
-    public void getAllPermutations(ArrayList<Integer> ho, int a, ArrayList<ArrayList<Integer>> list)
+    public void getAllPermutations(ArrayList<Integer> list, int startIndex, ArrayList<ArrayList<Integer>> per)
     {
-        if (a == ho.size())
+        if (startIndex == list.size())
         {
-            list.add(ho);
+            per.add(list);
+            return;
         }
 
         int count = 0;
 
-        ArrayList<Integer> temp = new ArrayList<>(ho);
+        ArrayList<Integer> tempList = new ArrayList<>(list);
 
-        while (ho.size() - a > count)
+        while (list.size() - startIndex > count)
         {
             count++;
 
-            int aaa = temp.get(ho.size() - 1);
-            temp.remove(ho.size() - 1);
-            temp.add(a, aaa);
-            getAllPermutations(temp, a + 1, list);
+            int indexChild = tempList.get(list.size() - 1);
+            tempList.remove(list.size() - 1);
+            tempList.add(startIndex, indexChild);
+            getAllPermutations(tempList, startIndex + 1, per);
         }
     }
 }

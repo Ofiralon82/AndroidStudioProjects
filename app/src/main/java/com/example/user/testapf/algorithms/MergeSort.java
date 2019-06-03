@@ -69,4 +69,61 @@ public class MergeSort
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void mSort(int[] arr)
+    {
+        int start = 0;
+        int end = arr.length - 1;
+        int mid = ((end - start) / 2) + 1;
+
+        mergee(arr, start, mid, end);
+    }
+
+    public void mergee(int[] arr, int start, int mid, int end)
+    {
+        if (mid - start > 1)
+        {
+            mergee(arr, start, ((mid - start) / 2) + 1, mid);
+        }
+
+        if (end - mid > 1)
+        {
+            mergee(arr, mid, ((end - mid) / 2) + 1, end);
+        }
+
+
+    }
+//0 1 2 3
+    public void sort(int[] arr, int start, int mid, int end)
+    {
+        int[] one = new int[((mid - start) / 2) + 1];
+        int[] two = new int[end - mid + 1];
+
+    }
+
+
+
+
 }
