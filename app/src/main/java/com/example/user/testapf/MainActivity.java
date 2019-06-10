@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.user.testapf.data_structures.graph.GraphImpl;
+import com.example.user.testapf.data_structures.graph.new_impl.Graph;
 import com.example.user.testapf.data_structures.test.Node;
 import com.example.user.testapf.data_structures.test.TreeImpl;
 
@@ -36,11 +37,11 @@ public class MainActivity extends AppCompatActivity
         B.right = E;
 //        getAllPath(A);
 
-        TreeImpl tree = new TreeImpl();
-        Node root = tree.getRoot();
-        tree.pathFromLeafToRoot(root, "");
+//        TreeImpl tree = new TreeImpl();
+//        Node root = tree.getRoot();
+//        tree.treeHight(root, 0);
 
-
+        Graph.koko();
 
 
         int fds= 453;
@@ -249,16 +250,17 @@ public class MainActivity extends AppCompatActivity
         Solution s = new Solution();
 //        String ggg = s.findDigitsInBinary(2);
 
-        GraphImpl g = new GraphImpl();
-        GraphImpl koko = g.createGraph();
+//        GraphImpl g = new GraphImpl();
+//        GraphImpl koko = g.createGraph();
+//
+//        GraphImpl.GraphNode node = new GraphImpl.GraphNode(1);
+//
+//        ArrayList<Integer> ooo1 = g.depthFirstTraversal(koko, node);
+//
+//        ArrayList<Integer> ooo2 = g.breadthFirstTraversal(koko, node);
 
-        GraphImpl.GraphNode node = new GraphImpl.GraphNode(1);
 
-        ArrayList<Integer> ooo1 = g.depthFirstTraversal(koko, node);
-
-        ArrayList<Integer> ooo2 = g.breadthFirstTraversal(koko, node);
-
-
+        TreeImpl.rootToLeaf(TreeImpl.getRoot(), "");
 
         int ed = 543;
         String gfd = "gfds";

@@ -22,9 +22,26 @@ import java.util.Stack;
 
 public class TreeImpl
 {
-    public ArrayList<Integer> array = new ArrayList<>();
+    public static void rootToLeaf(Node root, String s)
+    {
+        if (root == null) return;
 
-    public Node getRoot()
+        s = s + root.value;
+
+        rootToLeaf(root.left, s);
+        rootToLeaf(root.right, s);
+
+        if (root.left == null && root.right == null)
+        {
+            array.add(Integer.parseInt(s));
+        }
+    }
+
+
+
+    public static ArrayList<Integer> array = new ArrayList<>();
+
+    public static Node getRoot()
     {
         Node n1 = new Node(10);
         Node n2 = new Node(9);
@@ -42,6 +59,24 @@ public class TreeImpl
         n3.right = n1;
 
         return n4;
+    }
+
+    public int maxH = 0;
+    public void treeHight(Node root, int h)
+    {
+        if (root == null) return;
+        h++;
+        treeHight(root.left, h);
+        treeHight(root.right, h);
+
+        if (root.left == null && root.right == null)
+        {
+            if (maxH < h)
+            {
+                maxH = h;
+            }
+        }
+
     }
 
     public ArrayList<String> stringArray = new ArrayList<>();
