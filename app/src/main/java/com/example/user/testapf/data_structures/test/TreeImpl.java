@@ -61,6 +61,42 @@ public class TreeImpl
         return n4;
     }
 
+    public static ArrayList<ArrayList<Node>> nodeList = new ArrayList<>();
+    public static void BFSWithLevels(Node root)
+    {
+        LinkedList<Node> queue = new LinkedList<>();
+        queue.add(root);
+        int queueNumber = 1;
+        ArrayList<Node> temp = new ArrayList<>();
+        while (queueNumber > 0)
+        {
+            Node node = queue.poll();
+
+            queueNumber--;
+            temp.add(node);
+
+            if (node.left != null)
+            {
+                queue.add(node.left);
+            }
+
+            if (node.right != null)
+            {
+                queue.add(node.right);
+            }
+
+            if (queueNumber == 0)
+            {
+                nodeList.add(temp);
+                temp = new ArrayList<>();
+                queueNumber = queue.size();
+            }
+
+        }
+
+
+    }
+
     public int maxH = 0;
     public void treeHight(Node root, int h)
     {
