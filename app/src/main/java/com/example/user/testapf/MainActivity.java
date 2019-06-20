@@ -3,6 +3,8 @@ package com.example.user.testapf;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.user.testapf.algorithms.BinarySearch;
+import com.example.user.testapf.algorithms.MergeSort;
 import com.example.user.testapf.algorithms.Solution;
 import com.example.user.testapf.data_structures.graph.new_impl.Graph;
 import com.example.user.testapf.data_structures.graph.new_impl.NormalGraph;
@@ -305,21 +307,47 @@ public class MainActivity extends AppCompatActivity
 //
 //        int juikghjfds = sol2.exist(list, "BCDCB");
 
-        int[] kk = new int[0];
-        int[] kk1 = new int[]{0, 2, 3, 4};
-        int[] kk2 = new int[]{3};
-        int[] kk3 = new int[]{4};
-        int[] kk4 = new int[0];
+//        int[] kk = new int[0];
+//        int[] kk1 = new int[]{0, 2, 3, 4};
+//        int[] kk2 = new int[]{3};
+//        int[] kk3 = new int[]{4};
+//        int[] kk4 = new int[0];
+//
+//        int[][] oo = new int[5][];
+//        oo[0] = kk;
+//        oo[1] = kk1;
+//        oo[2] = kk2;
+//        oo[3] = kk3;
+//        oo[4] = kk4;
+//
+//        Sol3 sol3 = new Sol3();
+//        List<Integer> result = sol3.eventualSafeNodes(oo);
 
-        int[][] oo = new int[5][];
-        oo[0] = kk;
-        oo[1] = kk1;
-        oo[2] = kk2;
-        oo[3] = kk3;
-        oo[4] = kk4;
+        MergeSort sort = new MergeSort();
 
-        Sol3 sol3 = new Sol3();
-        List<Integer> result = sol3.eventualSafeNodes(oo);
+        ArrayList<Integer> koko = new ArrayList<>();
+        koko.add(6);
+        koko.add(4);
+        koko.add(1);
+        koko.add(9);
+        koko.add(8);
+        koko.add(5);
+        koko.add(2);
+
+        sort.mergeee(koko);
+
+
+        ArrayList<Integer> koko1 = new ArrayList<>();
+        koko1.add(3);
+        koko1.add(3);
+        koko1.add(3);
+        koko1.add(4);
+        koko1.add(5);
+        koko1.add(6);
+        koko1.add(7);
+
+        BinarySearch binarySearch = new BinarySearch();
+        int bool = binarySearch.getStartingIndex(koko1, 3);
 
         int ed = 543;
         String gfd = "gfds";
