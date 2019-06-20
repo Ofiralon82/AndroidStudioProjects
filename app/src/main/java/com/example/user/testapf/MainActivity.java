@@ -3,14 +3,17 @@ package com.example.user.testapf;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.user.testapf.data_structures.graph.GraphImpl;
+import com.example.user.testapf.algorithms.Solution;
 import com.example.user.testapf.data_structures.graph.new_impl.Graph;
-import com.example.user.testapf.data_structures.test.Node;
-import com.example.user.testapf.data_structures.test.TreeImpl;
+import com.example.user.testapf.data_structures.graph.new_impl.NormalGraph;
+import com.example.user.testapf.data_structures.graph.new_impl.Sol1;
+import com.example.user.testapf.data_structures.graph.new_impl.Sol2;
+import com.example.user.testapf.data_structures.graph.new_impl.Sol3;
+import com.example.user.testapf.data_structures.graph.new_impl.Solution11;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Stack;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -260,7 +263,63 @@ public class MainActivity extends AppCompatActivity
 //        ArrayList<Integer> ooo2 = g.breadthFirstTraversal(koko, node);
 
 
-        TreeImpl.rootToLeaf(TreeImpl.getRoot(), "");
+//        TreeImpl.rootToLeaf(TreeImpl.getRoot(), "");
+
+
+//        Solution sss = new Solution();
+//
+//        ArrayList<String> fff = new ArrayList<>();
+//        fff.add("ABCE");
+//        fff.add("SFCS");
+//        fff.add("ADEE");
+//
+//        Solution11 sdfcfsdf = new Solution11();
+//        int[][] tt = new int[2][2];
+//        int[]  one = new int[2];
+//        one[0] = 1;
+//        one[1] = 0;
+//
+//        int[]  two = new int[2];
+//        two[0] = 2;
+//        two[1] = 1;
+//
+//        tt[0] = one;
+//        tt[1] = two;
+//
+//        boolean pp = sdfcfsdf.canFinish(3, tt);
+
+//        NormalGraph fds = new NormalGraph();
+//        boolean popo = fds.isCycling(fds.makeGraph());
+
+//        Sol2 sol2 = new Sol2();
+//
+//        ArrayList<String> list = new ArrayList<>();
+//        list.add("FEDCBECD");
+//        list.add("FABBGACG");
+//        list.add("CDEDGAEC");
+//        list.add("BFFEGGBA");
+//        list.add("FCEEAFDA");
+//        list.add("AGFADEAC");
+//        list.add("ADGDCBAA");
+//        list.add("EAABDDFF");
+//
+//        int juikghjfds = sol2.exist(list, "BCDCB");
+
+        int[] kk = new int[0];
+        int[] kk1 = new int[]{0, 2, 3, 4};
+        int[] kk2 = new int[]{3};
+        int[] kk3 = new int[]{4};
+        int[] kk4 = new int[0];
+
+        int[][] oo = new int[5][];
+        oo[0] = kk;
+        oo[1] = kk1;
+        oo[2] = kk2;
+        oo[3] = kk3;
+        oo[4] = kk4;
+
+        Sol3 sol3 = new Sol3();
+        List<Integer> result = sol3.eventualSafeNodes(oo);
 
         int ed = 543;
         String gfd = "gfds";
@@ -268,27 +327,5 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public class Solution {
-        public String findDigitsInBinary(int A)
-        {
-            StringBuilder builder = new StringBuilder();
-
-            while (A != 0)
-            {
-                if (A % 2 == 0)
-                {
-                    builder.append("0" + builder.toString());
-                }
-                else
-                {
-                    builder.append("1" + builder.toString());
-                }
-
-                A = A/2;
-            }
-
-            return builder.toString();
-        }
-    }
 
 }
