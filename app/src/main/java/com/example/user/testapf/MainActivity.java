@@ -4,18 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.user.testapf.algorithms.BinarySearch;
+import com.example.user.testapf.hashmap.MyMapImpel;
 import com.example.user.testapf.algorithms.MergeSort;
 import com.example.user.testapf.algorithms.Solution;
 import com.example.user.testapf.data_structures.graph.new_impl.Graph;
-import com.example.user.testapf.data_structures.graph.new_impl.NormalGraph;
-import com.example.user.testapf.data_structures.graph.new_impl.Sol1;
-import com.example.user.testapf.data_structures.graph.new_impl.Sol2;
-import com.example.user.testapf.data_structures.graph.new_impl.Sol3;
-import com.example.user.testapf.data_structures.graph.new_impl.Solution11;
+import com.example.user.testapf.hashmap.MyMapImpl2;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -47,6 +43,26 @@ public class MainActivity extends AppCompatActivity
 //        tree.treeHight(root, 0);
 
         Graph.koko();
+
+
+        MyMapImpl2<Integer, String> qqq = new MyMapImpl2<>();
+        qqq.put(444, "444");
+        qqq.put(445, "445");
+        qqq.put(446, "446");
+        qqq.remove(446);
+        qqq.put(449, "449");
+        qqq.put(452, "452");
+        qqq.put(455, "455");
+        qqq.put(458, "458");
+        qqq.put(458, "koko");
+        qqq.put(461, "461");
+        qqq.put(464, "464");
+        qqq.put(467, "467");
+        qqq.put(470, "470");
+
+
+        String fdgsfds = qqq.get(432);
+        String fdgsfds2 = qqq.get(444);
 
 
         int fds= 453;
