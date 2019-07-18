@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.user.testapf.algorithms.BinarySearch;
+import com.example.user.testapf.data_structures.tree.AVLTree;
+import com.example.user.testapf.data_structures.tree.BinaryTreeImpl;
 import com.example.user.testapf.hashmap.MyMapImpel;
 import com.example.user.testapf.algorithms.MergeSort;
 import com.example.user.testapf.algorithms.Solution;
@@ -364,6 +366,29 @@ public class MainActivity extends AppCompatActivity
 
         BinarySearch binarySearch = new BinarySearch();
         int bool = binarySearch.getStartingIndex(koko1, 3);
+
+
+//        AVLTree AVLTree = new AVLTree();
+//
+//        AVLTree.Node node = new AVLTree().new Node(10);
+//        AVLTree.insert(node, 11);
+//        AVLTree.Node gfdhgfhgf = AVLTree.insert(node, 12);
+
+//        BinaryTreeImpl binaryTreeImpl = new BinaryTreeImpl();
+//        BinaryTreeImpl.Node node = binaryTreeImpl.addRecursive(null, 6);
+//        binaryTreeImpl.addRecursive(node, 4);
+//        binaryTreeImpl.addRecursive(node, 8);
+//        binaryTreeImpl.addRecursive(node, 3);
+//        binaryTreeImpl.addRecursive(node, 5);
+//        binaryTreeImpl.addRecursive(node, 7);
+//        binaryTreeImpl.addRecursive(node, 9);
+//        binaryTreeImpl.traverseInOrder(node);
+//
+//        binaryTreeImpl.returnMirror(node);
+//        binaryTreeImpl.traverseInOrder(node);
+
+
+
 
         int ed = 543;
         String gfd = "gfds";

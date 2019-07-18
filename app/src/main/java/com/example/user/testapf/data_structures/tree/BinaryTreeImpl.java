@@ -7,9 +7,9 @@ import java.util.Stack;
 
 public class BinaryTreeImpl
 {
-    Node root;
+    public Node root;
 
-    class Node
+    public static class Node
     {
         int value;
         Node left;
@@ -38,7 +38,7 @@ public class BinaryTreeImpl
         return bt;
     }
 
-    private Node addRecursive(Node current, int value)
+    public Node addRecursive(Node current, int value)
     {
         if (current == null)
         {

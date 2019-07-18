@@ -9,7 +9,7 @@ public class AVLTree {
         private int height = 1;
         private int value;
 
-        private Node (int val) {
+        public Node (int val) {
             this.value = val;
         }
     }
@@ -19,7 +19,7 @@ public class AVLTree {
         return N.height;
     }
 
-    private Node insert(Node node, int value) {
+    public Node insert(Node node, int value) {
         /* 1.  Perform the normal BST rotation */
         if (node == null) {
             return(new Node(value));
