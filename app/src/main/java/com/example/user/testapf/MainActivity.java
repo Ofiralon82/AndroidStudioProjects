@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.user.testapf.algorithms.BinarySearch;
+import com.example.user.testapf.algorithms.BubbleSort;
+import com.example.user.testapf.data_structures.test.TreeImpl;
 import com.example.user.testapf.data_structures.tree.AVLTree;
 import com.example.user.testapf.data_structures.tree.BinaryTreeImpl;
+import com.example.user.testapf.general.questions.GoogleVoters;
 import com.example.user.testapf.hashmap.MyMapImpel;
 import com.example.user.testapf.algorithms.MergeSort;
 import com.example.user.testapf.algorithms.Solution;
@@ -271,6 +274,14 @@ public class MainActivity extends AppCompatActivity
     {
         super.onResume();
         Solution s = new Solution();
+
+
+        GoogleVoters fgd = new GoogleVoters();
+
+        BubbleSort strgwewe = new BubbleSort();
+
+        int fdsd = 543;
+        String gjfd = "gfd";
 //        String ggg = s.findDigitsInBinary(2);
 
 //        GraphImpl g = new GraphImpl();
@@ -283,7 +294,7 @@ public class MainActivity extends AppCompatActivity
 //        ArrayList<Integer> ooo2 = g.breadthFirstTraversal(koko, node);
 
 
-//        TreeImpl.rootToLeaf(TreeImpl.getRoot(), "");
+        TreeImpl.rootToLeaf(TreeImpl.getRoot(), "");
 
 
 //        Solution sss = new Solution();
