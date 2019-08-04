@@ -4,17 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.user.testapf.algorithms.BinarySearch;
-import com.example.user.testapf.algorithms.BubbleSort;
 import com.example.user.testapf.algorithms.SelectionSort;
 import com.example.user.testapf.data_structures.test.TreeImpl;
-import com.example.user.testapf.data_structures.tree.AVLTree;
-import com.example.user.testapf.data_structures.tree.BinaryTreeImpl;
 import com.example.user.testapf.general.questions.GoogleVoters;
-import com.example.user.testapf.hashmap.MyMapImpel;
 import com.example.user.testapf.algorithms.MergeSort;
 import com.example.user.testapf.algorithms.Solution;
 import com.example.user.testapf.data_structures.graph.new_impl.Graph;
 import com.example.user.testapf.hashmap.MyMapImpl2;
+import com.example.user.testapf.data_structures.linked_list.udemy_linked_list_task.IntegerLinkedList;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -280,6 +277,23 @@ public class MainActivity extends AppCompatActivity
         GoogleVoters fgd = new GoogleVoters();
 
         SelectionSort strgwewe = new SelectionSort();
+
+//        IntegerLinkedList fgdsikgfdgfd = new IntegerLinkedList();
+
+        Integer one = 1;
+        Integer two = 2;
+        Integer three = 3;
+        Integer four = 4;
+
+        IntegerLinkedList list = new IntegerLinkedList();
+        list.insertSorted(three);
+        list.printList();
+        list.insertSorted(two);
+        list.printList();
+        list.insertSorted(one);
+        list.printList();
+        list.insertSorted(four);
+        list.printList();
 
         int fdsd = 543;
         String gjfd = "gfd";
