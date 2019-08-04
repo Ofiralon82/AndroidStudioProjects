@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.user.testapf.algorithms.BinarySearch;
 import com.example.user.testapf.algorithms.BubbleSort;
+import com.example.user.testapf.algorithms.SelectionSort;
 import com.example.user.testapf.data_structures.test.TreeImpl;
 import com.example.user.testapf.data_structures.tree.AVLTree;
 import com.example.user.testapf.data_structures.tree.BinaryTreeImpl;
@@ -278,7 +279,7 @@ public class MainActivity extends AppCompatActivity
 
         GoogleVoters fgd = new GoogleVoters();
 
-        BubbleSort strgwewe = new BubbleSort();
+        SelectionSort strgwewe = new SelectionSort();
 
         int fdsd = 543;
         String gjfd = "gfd";
