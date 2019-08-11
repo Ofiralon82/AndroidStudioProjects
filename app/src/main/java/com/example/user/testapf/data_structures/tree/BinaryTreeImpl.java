@@ -11,13 +11,13 @@ public class BinaryTreeImpl
 
     public static class Node
     {
-        int value;
+        int data;
         Node left;
         Node right;
 
         Node(int value)
         {
-            this.value = value;
+            this.data = value;
             right = null;
             left = null;
         }
@@ -34,6 +34,7 @@ public class BinaryTreeImpl
         bt.add(5);
         bt.add(7);
         bt.add(9);
+        bt.add(1);
 
         return bt;
     }
@@ -45,17 +46,17 @@ public class BinaryTreeImpl
             return new Node(value);
         }
 
-        if (value < current.value)
+        if (value < current.data)
         {
             current.left = addRecursive(current.left, value);
         }
-        else if (value > current.value)
+        else if (value > current.data)
         {
             current.right = addRecursive(current.right, value);
         }
         else
         {
-            // value already exists
+            // data already exists
             return current;
         }
 
@@ -74,11 +75,11 @@ public class BinaryTreeImpl
             return false;
         }
 
-        if (value == current.value)
+        if (value == current.data)
         {
             return true;
         }
-        return value < current.value
+        return value < current.data
                 ? containsNodeRecursive(current.left, value)
                 : containsNodeRecursive(current.right, value);
     }
@@ -95,7 +96,7 @@ public class BinaryTreeImpl
             return null;
         }
 
-        if (value == current.value)
+        if (value == current.data)
         {
             // Node to delete found
             if (current.left == null && current.right == null)
@@ -114,11 +115,11 @@ public class BinaryTreeImpl
             }
 
             int smallestValue = findSmallestValue(current.right);
-            current.value = smallestValue;
+            current.data = smallestValue;
             current.right = deleteRecursive(current.right, smallestValue);
             return current;
         }
-        if (value < current.value)
+        if (value < current.data)
         {
             current.left = deleteRecursive(current.left, value);
             return current;
@@ -129,7 +130,7 @@ public class BinaryTreeImpl
 
     private int findSmallestValue(Node root)
     {
-        return root.left == null ? root.value : findSmallestValue(root.left);
+        return root.left == null ? root.data : findSmallestValue(root.left);
     }
 
     public void delete(int value)
@@ -160,7 +161,7 @@ public class BinaryTreeImpl
         if (node != null)
         {
             traverseInOrder(node.left);
-            System.out.print(" " + node.value);
+            System.out.print(" " + node.data);
             traverseInOrder(node.right);
         }
     }
@@ -170,7 +171,7 @@ public class BinaryTreeImpl
     {
         if (node != null)
         {
-            System.out.print(" " + node.value);
+            System.out.print(" " + node.data);
             traversePreOrder(node.left);
             traversePreOrder(node.right);
         }
@@ -183,7 +184,7 @@ public class BinaryTreeImpl
         {
             traversePostOrder(node.left);
             traversePostOrder(node.right);
-            System.out.print(" " + node.value);
+            System.out.print(" " + node.data);
         }
     }
 
@@ -203,7 +204,7 @@ public class BinaryTreeImpl
 
             Node node = nodes.remove();
 
-            System.out.print(" " + node.value);
+            System.out.print(" " + node.data);
 
             if (node.left != null)
             {
