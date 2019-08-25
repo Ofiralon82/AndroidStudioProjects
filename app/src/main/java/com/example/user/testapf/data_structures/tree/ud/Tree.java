@@ -82,4 +82,47 @@ public class Tree {
         }
     }
 
+//    Interview Question #1:
+//
+//    Write an efficient algorithm thats able to compare two binary search trees.
+//    The method returns true if the trees are identical (same topology with same values in the nodes)
+//    otherwise it returns false.
+    public boolean compareTrees(TreeNode rootA, TreeNode rootB) {
+        if (rootA == null || rootB == null) {
+            return rootA == rootB;
+        }
+
+        if (rootA.getData().compareTo(rootB.getData()) != 0) {
+            return false;
+        }
+
+        return compareTrees(rootA.getLeftChild(), rootB.getLeftChild()) &&
+                compareTrees(rootA.getRightChild(), rootB.getRightChild());
+    }
+
+//    Interview Question #3:
+//
+//    Write an efficient algorithm to calculate the total sum of ages in a family tree.
+//    A family tree is a binary search tree in this case where all the nodes contain
+//    a Person object with [name,age] attributes.
+//
+//    Hint: we have to make a tree traversal so the running time of the algoritm will be O(N) linear running time
+
+    //solution - traverse in post order!
+    private int getAgesSum(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        int sum, leftSum, rightSum = 0;
+
+        leftSum = getAgesSum(node.getLeftChild());
+        rightSum = getAgesSum(node.getRightChild());
+
+        sum = node.getData() + leftSum + rightSum;
+        return sum;
+
+
+    }
+
 }

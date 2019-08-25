@@ -6,6 +6,10 @@ public class TreeNode {
     private TreeNode leftChild;
     private TreeNode rightChild;
 
+    public int compareTo(TreeNode node) {
+        return this.data - node.getData();
+    }
+
     public TreeNode(int data) {
         this.data = data;
     }
@@ -100,7 +104,7 @@ public class TreeNode {
         }
     }
 
-    public int getData() {
+    public Integer getData() {
         return data;
     }
 
