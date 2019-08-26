@@ -121,8 +121,5 @@ public class Tree {
 
         sum = node.getData() + leftSum + rightSum;
         return sum;
-
-
     }
-
 }
