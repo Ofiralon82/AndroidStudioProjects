@@ -1,4 +1,4 @@
-package com.example.user.testapf.hashmap;
+package com.example.user.testapf.data_structures.hashmap;
 
 import java.util.Arrays;
 

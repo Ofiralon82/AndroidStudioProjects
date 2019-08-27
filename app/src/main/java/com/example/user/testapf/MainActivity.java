@@ -10,7 +10,7 @@ import com.example.user.testapf.general.questions.GoogleVoters;
 import com.example.user.testapf.algorithms.MergeSort;
 import com.example.user.testapf.algorithms.Solution;
 import com.example.user.testapf.data_structures.graph.new_impl.Graph;
-import com.example.user.testapf.hashmap.MyMapImpl2;
+import com.example.user.testapf.data_structures.hashmap.MyMapImpl2;
 import com.example.user.testapf.data_structures.linked_list.udemy_linked_list_task.IntegerLinkedList;
 
 import java.util.ArrayList;
