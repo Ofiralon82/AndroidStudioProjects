@@ -64,7 +64,7 @@ public class MyMapImpl2<K, V>
         }
     }
 
-    private static final int INITIAL_CAPACITY = 1 << 2; // 16
+    private static final int INITIAL_CAPACITY = 1 << 4; // 16
     private Node<K, V>[] buckets;
     private int size = 0;
 
