@@ -1,9 +1,57 @@
 package com.example.user.testapf.general.recursion;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Permutations
 {
+    public ArrayList<String> stringList = new ArrayList<>();
+
+//    public List<Integer> findAnagrams(String s, String p) {
+//        ArrayList<Integer> result = new ArrayList<>();
+//        findAllPermutation(p, 0);
+//        for (int i = 0 ; stringList.size() > i ; i++) {
+//            if (s.contains(stringList.get(i))) {
+//                int ind = s.indexOf(stringList.get(i));
+//                result.add(s.indexOf(stringList.get(i)));
+//                while(ind >= 0)
+//                {
+//                    ind = s.indexOf(stringList.get(i), ind + 1);
+//                    result.add(s.indexOf(stringList.get(i)));
+//                }
+//            }
+//        }
+//
+//        Collections.reverse(result);
+//
+//        return result;
+//    }
+
+    public void findAllPermutation(String s, int index) {
+        if (index == s.length()) {
+            if (!stringList.contains(s))
+            stringList.add(s);
+
+            return;
+        }
+
+        StringBuilder builder = new StringBuilder(s);
+//        findAllPermutation(builder.toString(), index + 1);
+        int count = builder.length() - index;
+
+        while (count > 0) {
+            // char temp1 = builder.charAt(builder.size() - 1);
+            char temp2 = builder.charAt(index);
+
+            builder.deleteCharAt(index);
+            builder.append(temp2);
+            findAllPermutation(builder.toString(), index + 1);
+            count--;
+        }
+
+    }
+
     public void getAllPermutations(ArrayList<Integer> list, int startIndex, ArrayList<ArrayList<Integer>> per)
     {
         if (startIndex == list.size())
