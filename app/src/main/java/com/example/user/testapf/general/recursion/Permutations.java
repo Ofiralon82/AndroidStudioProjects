@@ -28,6 +28,32 @@ public class Permutations
 //        return result;
 //    }
 
+    public int reverse(int x) {
+        long y = x < 0 ? x*-1 : x;
+        String number = "" + y;
+
+        String reverse = new StringBuilder(number).reverse().toString();
+
+        long longNumber = Long.parseLong(reverse);
+        if (longNumber > Integer.MAX_VALUE) return 0;
+
+        return ((int) longNumber) * (x > 0 ? 1 : -1);
+
+//         if (x == 0) return 0;
+//         long y = Math.abs(x);
+//         String number = "";
+//         while (y > 0) {
+//             long temp = y % 10;
+//             number += temp;
+//             y = y/10;
+//         }
+
+//         long longNumber = Long.parseLong(number);
+//         if (longNumber > Integer.MAX_VALUE) return 0;
+
+//         return (int) longNumber;
+    }
+
     public void findAllPermutation(String s, int index) {
         if (index == s.length()) {
             if (!stringList.contains(s))

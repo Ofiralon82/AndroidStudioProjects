@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onResume();
         Permutations p = new Permutations();
-        ArrayList<Integer> fff = p.findAnagrams("abab", "ab");
+        int fff = p.reverse(-2147483648);
 
 
         GoogleVoters fgd = new GoogleVoters();
