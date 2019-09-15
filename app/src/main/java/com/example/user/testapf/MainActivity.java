@@ -271,9 +271,6 @@ public class MainActivity extends AppCompatActivity
     protected void onResume()
     {
         super.onResume();
-        Permutations p = new Permutations();
-        int fff = p.reverse(-2147483648);
-
 
         GoogleVoters fgd = new GoogleVoters();
 
