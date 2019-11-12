@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.user.testapf.algorithms.BinarySearch;
 import com.example.user.testapf.algorithms.SelectionSort;
+import com.example.user.testapf.algorithms.koko.Device;
 import com.example.user.testapf.data_structures.test.TreeImpl;
 import com.example.user.testapf.general.questions.GoogleVoters;
 import com.example.user.testapf.algorithms.MergeSort;
@@ -15,6 +16,7 @@ import com.example.user.testapf.general.recursion.Permutations;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -276,7 +278,44 @@ public class MainActivity extends AppCompatActivity
 
         SelectionSort strgwewe = new SelectionSort();
 
-//        IntegerLinkedList fgdsikgfdgfd = new IntegerLinkedList();
+//
+//        Solution.TreeNode node1 = new Solution().new TreeNode(1);
+//        Solution.TreeNode node2 = new Solution().new TreeNode(2);
+//        Solution.TreeNode node3 = new Solution().new TreeNode(3);
+//        Solution.TreeNode node4 = new Solution().new TreeNode(4);
+//        Solution.TreeNode node5 = new Solution().new TreeNode(5);
+//
+//        node1.left = node2;
+//        node1.right = node3;
+//
+//        node2.left = node4;
+//        node2.right = node5;
+
+
+//        Solution.ListNode node6 = new Solution().new ListNode(4);
+//
+//        node1.next = node2;
+//        node2.next = node3;
+//
+//        node4.next = node5;
+//        node5.next = node6;
+
+
+
+        Solution fds = new Solution();
+        int[][] pp = new int[3][3];
+        pp[0] = new int[]{5,5,5};
+        pp[1] = new int[]{5,5,5};
+        pp[2] = new int[]{5,5,5};
+        Solution.TreeNode sum = fds.convertBST(null);
+
+
+
+
+//        {"$id":"1","next":{"$id":"2","next":null,"random":{"$ref":"2"},"val":2},"random":{"$ref":"2"},"val":1}
+
+
+
 
         Integer one = 1;
         Integer two = 2;
@@ -292,6 +331,8 @@ public class MainActivity extends AppCompatActivity
         list.printList();
         list.insertSorted(four);
         list.printList();
+
+        Device dfs = new Device();
 
         int fdsd = 543;
         String gjfd = "gfd";
