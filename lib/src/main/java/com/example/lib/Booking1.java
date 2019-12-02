@@ -11,15 +11,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-public class MyClass
+public class Booking1
 {
 
 //    https://github.com/malvee/Booking.com
@@ -45,32 +45,39 @@ public class MyClass
 //
 //    }
 
-    private static void calcPoly(List<String> list, int[] result) {
-        for (int i = 0 ; list.size() > i ; i++) {
+    private static void calcPoly(List<String> list, int[] result)
+    {
+        for (int i = 0; list.size() > i; i++)
+        {
             String[] stringArray = list.get(i).split(" ");
 
-            if (stringArray.length != 4) {
+            if (stringArray.length != 4)
+            {
                 result[2] = result[2] + 1;
                 continue;
             }
 
             int[] array = new int[4];
 
-            for (int j = 0 ; stringArray.length > j ; j++) {
+            for (int j = 0; stringArray.length > j; j++)
+            {
                 array[j] = Integer.parseInt(stringArray[j]);
             }
 
-            if (array[0] <= 0 || array[1] <= 0 || array[2] <= 0 || array[3] <= 0) {
+            if (array[0] <= 0 || array[1] <= 0 || array[2] <= 0 || array[3] <= 0)
+            {
                 result[2] = result[2] + 1;
                 continue;
             }
 
-            if (array[0] == array[1] && array[0] == array[2] && array[0] == array[3]) {
+            if (array[0] == array[1] && array[0] == array[2] && array[0] == array[3])
+            {
                 result[0] = result[0] + 1;
                 continue;
             }
 
-            if (array[0] == array[2] && array[1] == array[3]) {
+            if (array[0] == array[2] && array[1] == array[3])
+            {
                 result[1] = result[1] + 1;
                 continue;
             }
@@ -80,15 +87,17 @@ public class MyClass
 
     }
 
-    public static void main1(String[] args){
-         Scanner scan = new Scanner(System.in);
-         List<String> list = new ArrayList<>();
-         while(scan.hasNext()) {
-             list.add(scan.nextLine());
-         }
-         scan.close();
+    public static void main1(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        List<String> list = new ArrayList<>();
+        while (scan.hasNext())
+        {
+            list.add(scan.nextLine());
+        }
+        scan.close();
 
-         int[] result = new int[3];
+        int[] result = new int[3];
         calcPoly(list, result);
 
         System.out.println(result[0] + " " + result[1] + " " + result[2]);
@@ -98,23 +107,27 @@ public class MyClass
 
     /* start  deltaEncodingnBooking*/
 
-    public static void main2(String[] args) throws IOException{
+    public static void main2(String[] args) throws IOException
+    {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
         String line = r.readLine();
 
         String[] tempArray = line.split(" ");
         int[] numArray = new int[tempArray.length];
-        for (int i = 0 ; tempArray.length > i ; i++) {
+        for (int i = 0; tempArray.length > i; i++)
+        {
             numArray[i] = Integer.parseInt(tempArray[i]);
         }
 
         StringBuilder builder = new StringBuilder();
         builder.append(numArray[0]);
         builder.append(" ");
-        for (int i = 1 ; numArray.length > i ; i++) {
+        for (int i = 1; numArray.length > i; i++)
+        {
             int currDelta = numArray[i] - numArray[i - 1];
 
-            if (currDelta > 127 || currDelta < -127) {
+            if (currDelta > 127 || currDelta < -127)
+            {
                 builder.append("-128");
                 builder.append(" ");
             }
@@ -128,11 +141,13 @@ public class MyClass
         System.out.print(builder.toString());
     }
 
-    public static void main3(String[] args){
+    public static void main3(String[] args)
+    {
         Scanner scan = new Scanner(System.in);
         List<Integer> list = new ArrayList<>();
 
-        while(scan.hasNext()) {
+        while (scan.hasNext())
+        {
             list.add(scan.nextInt());
         }
         scan.close();
@@ -140,10 +155,12 @@ public class MyClass
         StringBuilder builder = new StringBuilder();
         builder.append(list.get(0));
         builder.append(" ");
-        for (int i = 1 ; list.size() > i ; i++) {
-            int currDelta = list.get(i) - list.get( i - 1);
+        for (int i = 1; list.size() > i; i++)
+        {
+            int currDelta = list.get(i) - list.get(i - 1);
 
-            if (currDelta > 127 || currDelta < -127) {
+            if (currDelta > 127 || currDelta < -127)
+            {
                 builder.append("-128");
                 builder.append(" ");
             }
@@ -161,40 +178,48 @@ public class MyClass
 
     /* start  anagramBooking*/
 
-    public static void main6(String[] args){
+    public static void main6(String[] args)
+    {
         Scanner scan = new Scanner(System.in);
         List<String> list = new ArrayList<>();
 
-        while(scan.hasNext()) {
+        while (scan.hasNext())
+        {
             list.add(scan.nextLine());
         }
         scan.close();
 
         HashMap<String, List<String>> map = new HashMap<>();
 
-        for (int i = 0 ; list.size() > i ; i++) {
+        for (int i = 0; list.size() > i; i++)
+        {
             String temp = list.get(i);
             char[] chars = list.get(i).toCharArray();
             Arrays.sort(chars);
             String sorted = new String(chars);
             sorted = sorted.trim();
 
-            if (map.get(sorted) == null) {
+            if (map.get(sorted) == null)
+            {
                 List<String> tempList = new ArrayList<>();
                 tempList.add(temp);
                 map.put(sorted, tempList);
-            } else {
+            }
+            else
+            {
                 List<String> curr = map.get(sorted);
                 curr.add(temp);
             }
         }
         List<List<String>> res = new ArrayList<>();
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+        for (Map.Entry<String, List<String>> entry : map.entrySet())
+        {
             Collections.sort(entry.getValue());
             res.add(entry.getValue());
         }
 
-        Collections.sort(res, new Comparator<List<String>>(){
+        Collections.sort(res, new Comparator<List<String>>()
+        {
 
             @Override
             public int compare(List<String> one, List<String> two)
@@ -203,12 +228,15 @@ public class MyClass
             }
         });
 
-        for (int i = 0 ; res.size() > i ;i++) {
+        for (int i = 0; res.size() > i; i++)
+        {
             List<String> currList = res.get(i);
             StringBuilder builder = new StringBuilder();
-            for (int j = 0; currList.size() > j ;j++) {
+            for (int j = 0; currList.size() > j; j++)
+            {
                 builder.append(currList.get(j));
-                if (j != currList.size() - 1) {
+                if (j != currList.size() - 1)
+                {
                     builder.append(",");
                 }
             }
@@ -221,15 +249,18 @@ public class MyClass
 
     /* start sumArrayBooking*/
 
-    public static void main5(String[] args){
+    public static void main5(String[] args)
+    {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
         int length = scan.nextInt();
         Set<Integer> set = new HashSet<>();
-        for (int i = 0 ; i < length ; i++) {
+        for (int i = 0; i < length; i++)
+        {
             int curr = scan.nextInt();
             int needToFind = N - curr;
-            if (set.contains(needToFind)) {
+            if (set.contains(needToFind))
+            {
                 System.out.print("1");
                 return;
             }
@@ -243,7 +274,8 @@ public class MyClass
     /* end sumArrayBooking*/
 
     /* start sortHotelLIstBooking*/
-    public static void main(String[] args){
+    public static void main55(String[] args)
+    {
         Scanner scan = new Scanner(System.in);
         String words = scan.nextLine();
         words = words.replaceAll("\\,", "");
@@ -254,7 +286,8 @@ public class MyClass
 
         int maxValue = 0;
 
-        for (int i = 0 ; size > i ; i++) {
+        for (int i = 0; size > i; i++)
+        {
             int hotelId = scan.nextInt();
             scan.nextLine();
             String review = scan.nextLine();
@@ -264,31 +297,40 @@ public class MyClass
 
             int count = 0;
 
-            for (int j = 0 ; wordsArray.length > j ; j++) {
+            for (int j = 0; wordsArray.length > j; j++)
+            {
                 String curr = wordsArray[j];
 
-                for (int k = 0 ; reviewArray.length > k ; k++) {
-                    if (reviewArray[k].equals(curr)) {
+                for (int k = 0; reviewArray.length > k; k++)
+                {
+                    if (reviewArray[k].equals(curr))
+                    {
                         count++;
                     }
                 }
             }
 
-            if (map.containsKey(hotelId)) {
+            if (map.containsKey(hotelId))
+            {
                 map.put(hotelId, map.get(hotelId) + count);
                 maxValue = Math.max(maxValue, map.get(hotelId) + count);
-            } else {
+            }
+            else
+            {
                 map.put(hotelId, count);
                 maxValue = Math.max(maxValue, count);
             }
         }
         scan.close();
         ArrayList<Integer>[] arrayRes = new ArrayList[maxValue];
-        for (Map.Entry<Integer, Integer> entry1 : map.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry1 : map.entrySet())
+        {
             ArrayList<Integer> idList = new ArrayList<>();
             int revNumber = entry1.getValue();
-            for (Map.Entry<Integer, Integer> entry2 : map.entrySet()) {
-                if (entry2.getValue() == revNumber) {
+            for (Map.Entry<Integer, Integer> entry2 : map.entrySet())
+            {
+                if (entry2.getValue() == revNumber)
+                {
                     idList.add(entry2.getKey());
                 }
             }
@@ -298,9 +340,12 @@ public class MyClass
 
         StringBuilder builder = new StringBuilder();
 
-        for (int i = arrayRes.length - 1 ; i >= 0; i--) {
-            if (arrayRes[i] != null) {
-                for (int j = 0 ; arrayRes[i].size() > j ; j++) {
+        for (int i = arrayRes.length - 1; i >= 0; i--)
+        {
+            if (arrayRes[i] != null)
+            {
+                for (int j = 0; arrayRes[i].size() > j; j++)
+                {
                     builder.append(arrayRes[i].get(j));
                     builder.append(" ");
                 }
@@ -313,7 +358,8 @@ public class MyClass
 
     /* end sortHotelLIstBooking*/
 
-    public static void main(String[] args, int i) throws IOException{
+    public static void main(String[] args, int i) throws IOException
+    {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 //        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
         String uu = bufferedReader.readLine();
@@ -328,32 +374,36 @@ public class MyClass
     }
 
 
-
-
-
-    private static void getNumberAndPutArrayLengthAndPrint() {
+    private static void getNumberAndPutArrayLengthAndPrint()
+    {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] a = new int[n];
-        for(int i = 0 ; i < n ; i++){
+        for (int i = 0; i < n; i++)
+        {
             a[i] = in.nextInt();
         }
 
-        for(int i = 0; i < n ; i++){
+        for (int i = 0; i < n; i++)
+        {
             System.out.print(a[i]);
         }
     }
 
-    private static void getLoopOfInt() {
+    private static void getLoopOfInt()
+    {
         Scanner scan = new Scanner(System.in);
-        while(scan.hasNextInt()) {
+        while (scan.hasNextInt())
+        {
             System.out.println(scan.nextInt());
         }
     }
 
-    private static void getLoopOfString() {
+    private static void getLoopOfString()
+    {
         Scanner scan = new Scanner(System.in);
-        while(scan.hasNext()) {
+        while (scan.hasNext())
+        {
             System.out.println(scan.next());
         }
     }
@@ -372,7 +422,8 @@ public class MyClass
 
     }
 
-    public class Solution {
+    public class Solution
+    {
 
         // Complete the solve function below.
 //        double solve(List<List<Integer>> p, List<List<Integer>> q) {
@@ -393,12 +444,14 @@ public class MyClass
 
             List<List<Integer>> p = new ArrayList<>();
 
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++)
+            {
                 String[] pRowTempItems = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
                 List<Integer> pRowItems = new ArrayList<>();
 
-                for (int j = 0; j < 2; j++) {
+                for (int j = 0; j < 2; j++)
+                {
                     int pItem = Integer.parseInt(pRowTempItems[j]);
                     pRowItems.add(pItem);
                 }
@@ -408,12 +461,14 @@ public class MyClass
 
             List<List<Integer>> q = new ArrayList<>();
 
-            for (int i = 0; i < m; i++) {
+            for (int i = 0; i < m; i++)
+            {
                 String[] qRowTempItems = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
                 List<Integer> qRowItems = new ArrayList<>();
 
-                for (int j = 0; j < 2; j++) {
+                for (int j = 0; j < 2; j++)
+                {
                     int qItem = Integer.parseInt(qRowTempItems[j]);
                     qRowItems.add(qItem);
                 }
@@ -431,20 +486,25 @@ public class MyClass
         }
     }
 
-    public static class Polygons {
+    public static class Polygons
+    {
 
-        private void calcPoly(int a, int b, int c, int d, int[] list) {
-            if (a<=0 || b<=0 || c<=0 || d <= 0) {
+        private void calcPoly(int a, int b, int c, int d, int[] list)
+        {
+            if (a <= 0 || b <= 0 || c <= 0 || d <= 0)
+            {
                 list[2] = list[2] + 1;
                 return;
             }
 
-            if (a==b && b==c && c==d) {
+            if (a == b && b == c && c == d)
+            {
                 list[0] = list[0] + 1;
                 return;
             }
 
-            if (a==c && b==d) {
+            if (a == c && b == d)
+            {
                 list[1] = list[1] + 1;
                 return;
             }
@@ -459,7 +519,8 @@ public class MyClass
 
             int[] list = new int[3];
 
-            while (in.hasNext()) {
+            while (in.hasNext())
+            {
                 int a = in.nextInt();
                 int b = in.nextInt();
                 int c = in.nextInt();
@@ -474,28 +535,32 @@ public class MyClass
 
     //get list:
     //import java.util.*;
-    public static void withScanner() {
+    public static void withScanner()
+    {
         Scanner scan = new Scanner(System.in);
         List<Integer> list = new ArrayList<>();
 
-         while(scan.hasNext()) {
-          list.add(scan.nextInt());
-         }
-         scan.close();
+        while (scan.hasNext())
+        {
+            list.add(scan.nextInt());
+        }
+        scan.close();
 
         System.out.println(list.get(0));
         System.out.println(list.get(1));
         System.out.println(list.get(2));
     }
 
-//    import java.util.*;
+    //    import java.util.*;
 //    import java.io.*;
-    public static void withBuffer() throws IOException{
+    public static void withBuffer() throws IOException
+    {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
         String line = null;
         List<Integer> list = new ArrayList<>();
 
-        while ((line = r.readLine()) != null) {
+        while ((line = r.readLine()) != null)
+        {
             list.add(Integer.parseInt(line));
         }
 
@@ -504,25 +569,32 @@ public class MyClass
         System.out.println(list.get(2));
     }
 
-    public static long roundPrice(int price, int n) {
+    public static long roundPrice(int price, int n)
+    {
         String priceStr = "" + price;
         boolean isPositive = price > 0 ? true : false;
-        if (price == 0) {
+        if (price == 0)
+        {
             return (long) Math.pow(10, n);
         }
 
-        if (Math.pow(10, n) > price && isPositive) {
+        if (Math.pow(10, n) > price && isPositive)
+        {
             return (long) Math.pow(10, n);
         }
 
-        if (priceStr.length() == 1) {
+        if (priceStr.length() == 1)
+        {
             return price;
         }
 
         char[] charArray = priceStr.toCharArray();
-        for (int i = charArray.length - 1 ; i >= 0 ; i--) {
-            if (n == 0) {
-                if (isPositive) {
+        for (int i = charArray.length - 1; i >= 0; i--)
+        {
+            if (n == 0)
+            {
+                if (isPositive)
+                {
                     charArray[i] = (char) (charArray[i] + 1);
                 }
                 break;
@@ -533,15 +605,240 @@ public class MyClass
         }
 
         StringBuilder builder = new StringBuilder();
-        for (int i = 0 ; charArray.length > i ; i++) {
+        for (int i = 0; charArray.length > i; i++)
+        {
             builder.append(charArray[i]);
         }
 
         long res = Long.parseLong(builder.toString());
-        if (!isPositive) {
+        if (!isPositive)
+        {
             res *= -1;
         }
 
         return res;
     }
+
+    public static void main333(String[] args)
+    {
+        System.out.print("ddddddd");
+        int[] koko = {1, 1, 3, 4, 6, 6, 6, 6, 9, 11, 12, 15, 16, 17};
+        int started = getNUmberOfOccuranceWithBinarySearch(koko, 17, true);
+        int ending = getNUmberOfOccuranceWithBinarySearch(koko, 17, false);
+        if (started == -1)
+        {
+            System.out.print(0 - 1);
+        }
+        else
+        {
+            System.out.print(ending - started + 1);
+        }
+    }
+
+
+    private static int getNUmberOfOccuranceWithBinarySearch(int[] array, int number, boolean isStarting)
+    {
+        int start = 0;
+        int end = array.length;
+        int occ = -1;
+        while (start <= end)
+        {
+            int mid = (start + end) / 2;
+
+            if (array[mid] == number)
+            {
+                occ = mid;
+                if (isStarting)
+                {
+                    if (mid == 0)
+                        return occ;
+                    end = mid - 1;
+                }
+                else
+                {
+                    if (mid == array.length - 1)
+                        return occ;
+                    start = mid + 1;
+                }
+            }
+            else if (array[mid] > number)
+            {
+                end = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+
+        return occ;
+    }
+
+    public static void main(String[] args)
+    {//25 44 14
+        List<Integer> a = new ArrayList<>();
+        a.add(5);
+        a.add(6);
+        a.add(11);
+        a.add(25);
+        a.add(14);
+        a.add(1);
+
+        List<Integer> b = new ArrayList<>();
+        b.add(5);
+        b.add(6);
+        b.add(11);
+        b.add(44);
+        b.add(5);
+        b.add(1);
+
+        Set<Integer> aSet = new HashSet<>();
+        Set<Integer> bSet = new HashSet<>();
+
+        for (int i = 0; a.size() > i; i++)
+        {
+            aSet.add(a.get(i));
+        }
+
+        for (int i = 0; b.size() > i; i++)
+        {
+            bSet.add(b.get(i));
+        }
+
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; a.size() > i; i++)
+        {
+            if (!bSet.contains(a.get(i)))
+            {
+                result.add(a.get(i));
+            }
+        }
+
+        for (int i = 0; b.size() > i; i++)
+        {
+            if (!aSet.contains(b.get(i)))
+            {
+                result.add(b.get(i));
+            }
+        }
+
+        int ifdsf = 543;
+    }
+
+    public static int[][] imageSmoother(int[][] M)
+    {
+        int[][] res = new int[M.length][M[0].length];
+
+        for (int i = 0; M.length > i; i++)
+        {
+
+            for (int j = 0; M[0].length > j; j++)
+            {
+                // int curr = M[i][j];
+                int counter = 0;
+                int sum = 0;
+
+                if (i != 0)
+                {
+                    counter++;
+                    sum += M[i - 1][j];
+                }
+
+                if (i != 0 && j != M[0].length - 1)
+                {
+                    counter++;
+                    sum += M[i - 1][j + 1];
+                }
+
+                if (j != M[0].length - 1)
+                {
+                    counter++;
+                    sum += M[i][j + 1];
+                }
+
+                if (j != M[0].length - 1 && i != M.length - 1)
+                {
+                    counter++;
+                    sum += M[i + 1][j + 1];
+                }
+
+                if (i != M.length - 1)
+                {
+                    counter++;
+                    sum += M[i + 1][j];
+                }
+
+                if (j != 0 && i != M.length - 1)
+                {
+                    counter++;
+                    sum += M[i + 1][j - 1];
+                }
+
+                if (j != 0)
+                {
+                    counter++;
+                    sum += M[i][j - 1];
+                }
+
+                if (j != 0 && i != 0)
+                {
+                    counter++;
+                    sum += M[i - 1][j - 1];
+                }
+
+                int result = sum / counter;
+                res[i][j] = result;
+            }
+        }
+
+        return res;
+    }
+
+
+    // Employee info
+    class Employee
+    {
+        // It's the unique id of each node;
+        // unique id of this employee
+        public int id;
+        // the importance value of this employee
+        public int importance;
+        // the id of direct subordinates
+        public List<Integer> subordinates;
+    }
+
+    Map<Integer, Integer> map = new HashMap<>();
+
+    public int getImportance(List<Employee> employees, int id)
+    {
+        int index = 0;
+        for (int i = 0 ; employees.size() > i ; i++) {
+            if (employees.get(i).id == id ) {
+                index = i;
+            }
+
+            map.put(employees.get(i).id, i);
+        }
+
+        MyObj obj = new MyObj();
+        obj.sum += employees.get(index).importance;
+        getAll(obj, employees.get(index).subordinates, employees);
+        return obj.sum;
+    }
+
+    class MyObj {
+        int sum = 0;
+    }
+
+    private void getAll(MyObj obj, List<Integer> employeesInt, List<Employee> employees) {
+        for (int i = 0 ; employeesInt.size() > i ; i++) {
+            if (employees.get(map.get(employeesInt.get(i))).subordinates.size() == 0) {
+                obj.sum += employees.get(employeesInt.get(i)).importance;
+            } else {
+                getAll(obj, employees.get(employeesInt.get(i)).subordinates, employees);
+            }
+        }
+    }
+
 }
