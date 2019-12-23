@@ -674,171 +674,26 @@ public class Booking1
         return occ;
     }
 
+    public static int addDigits(int num) {
+        int count = 0;
+        while (num > 9) {
+            count++;
+            int num1 = 0;
+            while (num != 0) {
+                num1 += num % 10;
+                num = num / 10;
+            }
+
+            num = num1;
+        }
+
+        return count;
+    }
+
+
     public static void main(String[] args)
-    {//25 44 14
-        List<Integer> a = new ArrayList<>();
-        a.add(5);
-        a.add(6);
-        a.add(11);
-        a.add(25);
-        a.add(14);
-        a.add(1);
-
-        List<Integer> b = new ArrayList<>();
-        b.add(5);
-        b.add(6);
-        b.add(11);
-        b.add(44);
-        b.add(5);
-        b.add(1);
-
-        Set<Integer> aSet = new HashSet<>();
-        Set<Integer> bSet = new HashSet<>();
-
-        for (int i = 0; a.size() > i; i++)
-        {
-            aSet.add(a.get(i));
-        }
-
-        for (int i = 0; b.size() > i; i++)
-        {
-            bSet.add(b.get(i));
-        }
-
-        List<Integer> result = new ArrayList<>();
-
-        for (int i = 0; a.size() > i; i++)
-        {
-            if (!bSet.contains(a.get(i)))
-            {
-                result.add(a.get(i));
-            }
-        }
-
-        for (int i = 0; b.size() > i; i++)
-        {
-            if (!aSet.contains(b.get(i)))
-            {
-                result.add(b.get(i));
-            }
-        }
-
-        int ifdsf = 543;
-    }
-
-    public static int[][] imageSmoother(int[][] M)
     {
-        int[][] res = new int[M.length][M[0].length];
 
-        for (int i = 0; M.length > i; i++)
-        {
-
-            for (int j = 0; M[0].length > j; j++)
-            {
-                // int curr = M[i][j];
-                int counter = 0;
-                int sum = 0;
-
-                if (i != 0)
-                {
-                    counter++;
-                    sum += M[i - 1][j];
-                }
-
-                if (i != 0 && j != M[0].length - 1)
-                {
-                    counter++;
-                    sum += M[i - 1][j + 1];
-                }
-
-                if (j != M[0].length - 1)
-                {
-                    counter++;
-                    sum += M[i][j + 1];
-                }
-
-                if (j != M[0].length - 1 && i != M.length - 1)
-                {
-                    counter++;
-                    sum += M[i + 1][j + 1];
-                }
-
-                if (i != M.length - 1)
-                {
-                    counter++;
-                    sum += M[i + 1][j];
-                }
-
-                if (j != 0 && i != M.length - 1)
-                {
-                    counter++;
-                    sum += M[i + 1][j - 1];
-                }
-
-                if (j != 0)
-                {
-                    counter++;
-                    sum += M[i][j - 1];
-                }
-
-                if (j != 0 && i != 0)
-                {
-                    counter++;
-                    sum += M[i - 1][j - 1];
-                }
-
-                int result = sum / counter;
-                res[i][j] = result;
-            }
-        }
-
-        return res;
-    }
-
-
-    // Employee info
-    class Employee
-    {
-        // It's the unique id of each node;
-        // unique id of this employee
-        public int id;
-        // the importance value of this employee
-        public int importance;
-        // the id of direct subordinates
-        public List<Integer> subordinates;
-    }
-
-    Map<Integer, Integer> map = new HashMap<>();
-
-    public int getImportance(List<Employee> employees, int id)
-    {
-        int index = 0;
-        for (int i = 0 ; employees.size() > i ; i++) {
-            if (employees.get(i).id == id ) {
-                index = i;
-            }
-
-            map.put(employees.get(i).id, i);
-        }
-
-        MyObj obj = new MyObj();
-        obj.sum += employees.get(index).importance;
-        getAll(obj, employees.get(index).subordinates, employees);
-        return obj.sum;
-    }
-
-    class MyObj {
-        int sum = 0;
-    }
-
-    private void getAll(MyObj obj, List<Integer> employeesInt, List<Employee> employees) {
-        for (int i = 0 ; employeesInt.size() > i ; i++) {
-            if (employees.get(map.get(employeesInt.get(i))).subordinates.size() == 0) {
-                obj.sum += employees.get(employeesInt.get(i)).importance;
-            } else {
-                getAll(obj, employees.get(employeesInt.get(i)).subordinates, employees);
-            }
-        }
     }
 
 }
